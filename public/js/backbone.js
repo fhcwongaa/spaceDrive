@@ -8,8 +8,8 @@ var gameRouter = Backbone.Router.extend({
 		"settings": "showSettings"
 	},
 	showChatRoom: function(){
-		$("#practice").toggleClass("active");
-		$("#chatroom").toggleClass("active");
+		$("#practice").removeClass("active");
+		$("#chatroom").addClass("active");
 		console.log("chattttttttt")
 		$("#display-content").empty();
 		var chatRoom = '<div class="chat-window row"><div class="chat-header row"><h1>Chatroom</h1> </div><div class="chat-messages row" id="messages"></div></div><div class="row"><div class="input-group chat-input"><form action=""><input class="form-control" placeholder="Enter Your Message" aria-describedby="sizing-addon1"autocomplete="off"id="m"></form><span class="input-group-addon" id="sizing-addon1">Send</span></div></div>';
@@ -19,8 +19,8 @@ var gameRouter = Backbone.Router.extend({
 
 	// ----------------Start Phaser Game-------------------
 	console.log("hit practice");
-	$("#chatroom").toggleClass("active");
-	$("#practice").toggleClass("active");
+	$("#chatroom").removeClass("active");
+	$("#practice").addClass("active");
 	$("#display-content").empty();
 	// $("#display-content").toggleClass('loading');
 	//load for three seconds and start game
