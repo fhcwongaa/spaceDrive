@@ -1,25 +1,41 @@
 {
-  "name": "node-authentication",
+  "name": "spacedriveproject",
+  "version": "1.0.0",
+  "description": "User Stories",
   "main": "server.js",
-  "dependencies" : {
-    "express" : "~4.0.0",           
-    "ejs" : "~0.8.5",               
-    "mongoose" : "~3.8.1",          
-    "passport" : "~0.1.17",         
-    "passport-local" : "~0.1.6",    
-    "passport-facebook" : "~1.0.2", 
-    "passport-twitter" : "~1.0.2",  
-    "passport-google-oauth" : "~0.1.5",
-    "connect-flash" : "~0.1.1",     
-    "bcrypt-nodejs" : "latest",
-
-    "morgan": "~1.0.0",
-    "body-parser": "~1.0.0",
-    "cookie-parser": "~1.0.0",
-    "method-override": "~1.0.0",
-    "express-session": "~1.0.0"     
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.0.2",
+    "express": "^4.0.0",
+    "connect-flash": "^0.1.1",
+    "mongoose": "^3.8.35",
+    "http": "^0.0.0",
+    "method-override": "^1.0.2",
+    "passport-facebook": "^1.0.3",
+    "passport": "^0.1.18",
+    "morgan": "^1.0.1",
+    "ejs": "^0.8.8",
+    "cookie-parser": "^1.0.1",
+    "session.socket.io": "^0.2.1",
+    "passport-google-oauth": "^0.1.5",
+    "passport-twitter": "^1.0.3",
+    "socket.io": "^1.3.6",
+    "express-session": "^1.0.4",
+    "passport-local": "^0.1.6"
   },
-    "scripts": {
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fhcwongaa/spaceDrive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fhcwongaa/spaceDrive/issues"
+  },
+  "homepage": "https://github.com/fhcwongaa/spaceDrive#readme"
 }
