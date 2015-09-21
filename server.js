@@ -27,7 +27,7 @@ var io = require('socket.io')(http);
 require('./config/passport')(passport); // pass passport for configuration
 
 //connect mongoose to MongoDB
-mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+mongoose.connect("mongodb://heroku_8wc1trsk:tlhlrb1h6j41onmft1do5bfiln@ds051523.mongolab.com:51523/heroku_8wc1trsk", function (error) {
     if (error){
     	console.error(error);
     } 
