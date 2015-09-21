@@ -2,6 +2,7 @@ var express = require('express');
 
 //set port to 8080
 var port = process.env.PORT || 4004
+var dotenv = require('dotenv').load();
 
 //socket io
 var mongoose = require('mongoose');
@@ -26,7 +27,14 @@ var io = require('socket.io')(http);
 require('./config/passport')(passport); // pass passport for configuration
 
 //connect mongoose to MongoDB
-mongoose.connect(configDB.url);
+mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+    if (error){
+    	console.error(error);
+    } 
+    else{
+    	console.log('mongo connected');
+    }
+});
 
 //set up express
 app.use(morgan('dev'));
