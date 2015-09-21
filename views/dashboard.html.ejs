@@ -1,0 +1,122 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Space Drive</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/chatroom.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone.js"></script>
+
+</head>
+<body>
+
+
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                  Users Online
+                </li>
+                <div class="row" id="users">
+
+
+                </div>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                  <img alt="Brand" src="/img/spacedrive_logo.png" id="brand-logo">
+                </a>
+              </div>
+               <p class="navbar-text" id="welcome-message"><%=user.local.name%></p>
+              <a href="/logout"><button type="button" class="btn btn-default navbar-btn pull-right" id="sign-in" data-toggle="modal" data-target="#myModal">Sign Out</button></a>
+            </div>
+       </nav>
+
+       <!-- CHAT Window -->
+      <div class = "col-md-12">
+        <!-- panel menu -->
+        <div class="game-menu row">
+          <ul class="nav nav-tabs nav-justified">
+            <li role="presentation" class="active" id="chatroom"><a href="#chatroom">Chatroom</a></li>
+            <li role="presentation" id="practice"><a href="#practice">Practice</a></li>
+            <li role="presentation" id="settings"><a href="#settings">Settings</a></li>
+          </ul>
+        </div>
+      <div id="display-content">
+        <div class="chat-window row">
+            <div class="chat-header row">
+              <h1>Chatroom</h1>
+            </div>
+              <div class="chat-messages row" id="messages">
+                 
+              </div>
+          </div>
+          <div class="row">
+               <div class="input-group chat-input">
+                  <form action="">
+                    <input class="form-control" placeholder="Enter Your Message" aria-describedby="sizing-addon1"autocomplete="off"id="m">
+                  </form>
+                  <span class="input-group-addon" id="sizing-addon1">Send</span>
+                </div>
+          </div>
+      </div>
+    </div>
+    </div>
+</div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <script type="text/javascript" src="../js/phaser.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/backbone.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+
+      var socket = io(); //open a socket
+      console.log("connected");
+      $('form').submit(function(){
+        console.log("submitted");
+        socket.emit('message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      socket.on('connect', function(){
+        socket.emit('adduser', $(".navbar-text").text());//send the username;
+      })
+      socket.on('message', function(username, msg){
+        $('#messages').append($('<li>').text(username +":  " + msg));
+      });
+
+      socket.on('updateusers',function(data){
+        console.log("hello")
+        $("#users").empty();
+        $.each(data,function(key,value){
+          $("#users").append("<li><span class='col-md-2'><i class='fa fa-circle'></i></span><span class='col-md-4'>" + key + "</span><spanclass='col-md-5' ><button class='btn btn-default challenge-buttons'type='submit'>Challenge</button></li></span>")
+        });
+      })
+    </script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+
+ 
+
+
+
+</body>
+</html>

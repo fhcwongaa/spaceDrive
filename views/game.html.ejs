@@ -1,0 +1,33 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Space Drive</title>
+	<script type="text/javascript" src="../js/phaser.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+	<nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              <img alt="Brand" src="/img/spacedrive_logo.png" id="brand-logo">
+            </a>
+          </div>
+          <a href="/logout"><button type="button" class="btn btn-default navbar-btn pull-right" id="sign-in" data-toggle="modal" data-target="#myModal">Sign Out</button></a>
+        </div>
+   </nav>
+
+   <h1>Welcome <%= user.local.name %> </h1>
+
+
+
+
+<script src="/js/main.js"></script>
+</body>
+</html>

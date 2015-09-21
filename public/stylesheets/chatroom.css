@@ -1,0 +1,85 @@
+.chat-window{
+	margin-left: 50px;
+	/*border: solid 1px #ff6b08;*/
+	height: 500px;
+	width: 90%;
+	overflow: scroll;
+}
+.chat-header{
+	width: 95%;
+	margin: 0 auto;
+	border-bottom: 1px solid #ff6b08;
+}
+.chat-messages{
+	width: 95%;
+	margin: 0 auto;
+	margin-top: 20px;
+	list-style: none;
+	overflow: scroll;
+	font-family: helvetica neue;
+	font-weight: 200;
+}
+
+.chat-messages li{
+	font-size: 18px;
+	color: white;
+	margin-bottom: 10px;
+}
+
+#messages{
+	height: 100%;
+	overflow: scroll;
+}
+
+.chat-input{
+	margin-left: 50px;
+	position: fixed;
+	bottom: 20px;
+	width: 75%;	
+	padding: 5px 5px 5px 5px;
+}
+
+.chat-input input{
+	outline: 0;
+	background: none;
+	border: 1px solid #ff6b08;
+	color:white;
+	font-family: helvetica neue;
+}
+
+.chat-input span{
+	font-size: 20px;
+	border: 1px solid #ff6b08;
+	background: black;
+	color: #ff6b08;
+}
+
+
+
+/*****************************GAME MENU****************************/
+
+.game-menu{
+	margin: 0 auto;
+	width: 95%;
+
+}
+.nav>li>a:active{
+	color: #ff6b08;
+}
+.nav>li>a{
+	color: #ff6b08;
+	border-bottom: gray solid 1px;
+}
+.nav>li>a:hover{
+	color: black;
+}
+.loading{
+	background: url("../img/loading.gif");
+
+}
+.display-content{
+	text-align: center;
+}
+.display-content img{
+	margin: 0 auto;
+}

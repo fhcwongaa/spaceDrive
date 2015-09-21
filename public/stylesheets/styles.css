@@ -1,0 +1,157 @@
+/***************************FONTS*******************/
+@font-face{
+    font-family: "Grand_sport";
+    src: url('../fonts/alienleagueii.ttf');
+
+}
+
+
+/***************************HOMEPAGE*******************************/
+
+html, body{
+	background-color: black;
+	color:#ff6b08;
+	font-family: Grand_Sport;
+}
+
+#brand-logo{
+	height: 70px;
+	width: 150px;
+	padding-bottom: 30px;
+
+}
+
+.navbar{
+	background-color: black;
+	border: none;
+	color: #ff6b08;
+	-webkit-box-shadow: -4px 20px 23px -20px rgba(255,107,8,1);
+	-moz-box-shadow: -4px 20px 23px -20px rgba(255,107,8,1);
+	box-shadow: -4px 20px 23px -20px rgba(255,107,8,1);
+}
+
+.jumbotron{
+	text-align: center;
+}
+
+.carousel-caption{
+	color: white;
+	font-size: 25px;
+	font-family: Grand_Sport;
+}
+#welcome-message{
+	line-height: 40px;
+	color: #ff6b08;
+	font-family: Grand_Sport;
+	font-size: 20px;
+}
+#sign-in{
+	line-height: 40px;
+	border: none;
+	background-color: black;
+	color:#ff6b08;
+	font-family: Grand_Sport;
+	font-size: 20px;
+	width: 120px;
+	outline: none;
+}
+
+.info-row{
+	margin-top: 80px;
+	margin-bottom: 80px;
+	color: #ff6b08;
+	font-family: Grand_Sport;
+	font-size: 18px;
+}
+.caption{
+	margin-top: 20px;
+}
+
+#play{
+	border: 1px solid #ff6b08;
+	color: #ff6b08;
+	background-color: transparent;
+	margin-bottom: 20px;
+	font-size: 27px;
+	outline: none;
+}
+
+#play:hover{
+	color:white;
+	border: 1px solid white;
+}
+
+.blur{
+	-webkit-filter: blur(3px);
+}
+
+/*************************************Modal****************************/
+#myModal{
+	color: #ff6b08;
+	font-family: Grand_Sport;
+	font-size: 30px;
+	background-color: background:rgba(255,255,255,0.8);
+	margin-top: 100px;
+}
+.modal-header{
+	border-bottom: none;
+}
+.modal-content{
+	background: black;
+	border: 1px solid #ff6b08;
+}
+.modal-footer{
+	border:none;
+}
+.modal-logo{
+	height: 75%;
+	width: 60%;
+}
+
+.input-groups{
+
+}
+.form-inputs{
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	font-family: helvetica neue; 
+
+}
+
+.form-inputs span{
+	background-color: black;
+	border: #333333 solid 1px;
+}
+
+
+.sign-in-form{
+	border-right: 1px solid white;
+}
+
+.form-buttons{
+	border: 1px solid #ff6b08;
+	color: #ff6b08;
+	background-color: transparent;
+	margin-bottom: 20px;
+	font-size: 16px;
+	outline: none;
+}
+
+.ic{
+	color:#ff6b08;
+}
+
+.close{
+	color: #ff6b08;
+	opacity: 1;
+}
+
+canvas{
+	border-radius: 20px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+
+
