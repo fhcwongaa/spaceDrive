@@ -2,7 +2,7 @@ var express = require('express');
 
 //set port to 8080
 var port = process.env.PORT || 4004
-var dotenv = require('dotenv').load();
+// var dotenv = require('dotenv').load();
 
 //socket io
 var mongoose = require('mongoose');
