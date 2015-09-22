@@ -14,6 +14,20 @@ html, body{
 	font-family: Grand_Sport;
 }
 
+footer{
+	font-family: helvetica neue;
+	font-size: 15px;
+	font-weight: lighter;
+	width: 100%;
+	bottom: 0;
+	position: fixed;
+	-webkit-box-shadow: -4px 20px 23px 20px rgba(255,107,8,1);
+	-moz-box-shadow: -4px 20px 23px 20px rgba(255,107,8,1);
+	box-shadow: -4px 20px 23px 20px rgba(255,107,8,1);
+	height: 5%;
+	background-color: black;
+}
+
 #brand-logo{
 	height: 70px;
 	width: 150px;
@@ -150,7 +164,12 @@ html, body{
 canvas{
 	border-radius: 20px;
 	margin: 0 auto;
-	margin-top: 100px;
+	margin-top: 20px;
+}
+
+.controls{
+
+	margin: 0 auto;
 }
 
 

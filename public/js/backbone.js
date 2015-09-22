@@ -24,7 +24,6 @@ var gameRouter = Backbone.Router.extend({
 	$("#display-content").empty();
 	// $("#display-content").toggleClass('loading');
 	//load for three seconds and start game
-	setTimeout(function(){
 		$("#display-content").empty();
 
 
@@ -113,8 +112,10 @@ var gameRouter = Backbone.Router.extend({
 			    this.nextFire = this.game.time.time + this.fireRate;
 
 			};
-			var game = new Phaser.Game(1000, 600, Phaser.AUTO, "display-content", { preload: preload, create: create, update: update, render:render });
 
+			var controls = '<div class="controls"><img src="/img/controls.png"></div>'
+			var game = new Phaser.Game(1000, 600, Phaser.AUTO, "display-content", { preload: preload, create: create, update: update, render:render });
+			$("#display-content").append(controls);
 			function preload(){
 				 game.load.image("car", "/img/spacedrive_car.png", 111, 61);
 			     game.load.image("track", "/img/spacedrive_bg.png");
@@ -138,9 +139,15 @@ var gameRouter = Backbone.Router.extend({
 			var DRAG = 400;
 			var MAXSPEED = 500;
 			var weapons = [];
+			var lap = 0;
+			var crossed = false;
+			var timerX = 4;
+			var countDownText;
+			var timerEvent; 
 
 
 			function create(){
+				
 				//create physics system
 				game.physics.startSystem(Phaser.Physics.ARCADE);
 				//add background
@@ -191,7 +198,14 @@ var gameRouter = Backbone.Router.extend({
 			    //set up camera follow
 			    game.camera.follow(player);
 
-			    //set up time
+			    //create a countdown timer
+				timerEvent = game.time.events.loop(Phaser.Timer.SECOND, updateTimer);
+				countDownText = game.add.text(1200, 800, timerX, { font: "65px Helvetica neue", fill: "white", align: "right" });
+
+				this.scale.pageAlignHorizontally = true;
+
+				centerCountDownText();
+			    //set up time duration
 			    timer = game.time.create(false);
 			  
 			}
@@ -200,6 +214,7 @@ var gameRouter = Backbone.Router.extend({
 				//set up collision 
 			    game.physics.arcade.collide(player, platforms); 
 			    game.physics.arcade.overlap(player, start, startLap, null, this);
+
 
 			    player.body.velocity.x = 0;
 			    player.body.velocity.y = 0;
@@ -242,10 +257,18 @@ var gameRouter = Backbone.Router.extend({
 
 			}
 
+			function addLap(){
+		    	if(start.exists && !start.crossed && start.world.x <= player.world.x) {
+		         start.crossed = true;
+		         lap++;
+    			}
+			}
+
 			function startLap(){
 			    //create a timer
 			    if(timer.running === false){
 			        //star the timer
+
 			        timer.start();    
 			    }
 			    console.log("hello");
@@ -265,13 +288,36 @@ var gameRouter = Backbone.Router.extend({
 			    var output = "Time: " + mins + ":" + secs + ":" + tenths%100;
 
 			    game.debug.text(output, 32, 32);
+			    game.debug.text("Laps:" + lap + "/5", 32, 52)
 
 
 
 			}
+			function updateTimer() {
+			  timerX -= 1;
+			  if(timerX === 0) {
+			    //To remove event:
+			    console.log("timmmmmmer")
+			    timerX = 4;
+			    countDownText.setText("GO!");
+			    game.time.events.remove(timerEvent);
+			    setTimeout(function(){
+			    	countDownText.setText("");
+			    },1000)
+			    
+			  } else {
+			  	    console.log("timmmmmmer")
+			    countDownText.setText(timerX);
+			  }
+			  centerCountDownText();
+			}
+
+			function centerCountDownText() {
+			  countDownText.x = 1000;
+			}
 
 			//-----------end phase game-----------
-	},1000)
+
 	
 
 	}
